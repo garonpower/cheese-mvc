@@ -1,19 +1,35 @@
 <!DOCTYPE html>
 <html lang="en" xmlns:th="http://www.thymeleaf.org/">
-<head>
-    <meta charset="UTF-8" />
-    <title th:text="${title}">Title</title>
-</head>
+<head th:replace="fragments :: head"></head>
 <body>
 <h1 th:text="${title}">Default Title</h1>
 
+<nav th:replace="fragments :: navigation"></nav>
+
 <p th:unless="${cheeses} and ${cheeses.size()}">no cheese :(</p>
 
-<a href="/cheese/add">Add Cheese</a>
 
-<ul>
+<!--<ul>
     <li th:each="cheese : ${cheeses}" th:text="${cheese}"></li>
-</ul>
+</ul>-->
+
+<tr th:each="cheese : ${cheeses}">
+    <td th:text="${cheese.key}">Cheese Name</td>
+    <td th:text="${cheese.value}">Description</td>
+</tr>
 
 </body>
 </html>
+
+<!--
+<tr th:each="mapItem : ${map}">
+    <td th:text="${mapItem.key}">Key</td>
+    <td th:text="${mapItem.value}">Value</td>
+</tr>
+Also, you may find Thymeleaf syntax like the following useful:
+
+<p th:text="${oneThing + '! ' + anotherThing}"></p>
+Where oneThing and anotherThing are data passed in from the controller. For example, if the value of oneThing were
+"This rocks" and the value of anotherThing were "Doesn't it?", the above would render in the browser as:
+
+This rocks! Doesn't it?-->
