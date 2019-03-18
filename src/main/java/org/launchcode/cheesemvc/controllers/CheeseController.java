@@ -40,8 +40,12 @@ public class CheeseController {
     @RequestMapping(value = "remove", method = RequestMethod.POST)
     public String removeCheeseForm(@RequestParam String cheese) {
 
-        removedCheeses.add(cheese);
+// find out if checkbox is checked.  cheese=on, then add cheese name to array//
+        if (cheese.equals("on")) {  // How to determine if box is check? also tried cheese == "on"
+            removedCheeses.add(cheese);
+        }
 
+// iterate through array and remove any present cheese names from hashmap
         for (String type : removedCheeses) {
             cheeses.remove(type);
         }
