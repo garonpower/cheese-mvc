@@ -10,13 +10,10 @@
 
 <table>
     <tr>
-        <td></td>
         <td><b>Cheese Name</b></td>
         <td><b>Description</b></td>
     </tr>
     <tr th:each="cheese : ${cheeses}">
-        <td><input type="checkbox" id="cheese" name="cheese" />
-            <label for="cheese"></label></td>
         <td th:text="${cheese.key}">Cheese Name</td>
         <td th:text="${cheese.value}">Description</td>
     </tr>
