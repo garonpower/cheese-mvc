@@ -14,7 +14,7 @@ import java.util.HashMap;
 @RequestMapping("cheese")
 public class CheeseController {
 
-    static HashMap<String, String> cheeses = new HashMap<>();
+    static ArrayList<Cheese> cheeses = new ArrayList<>();
 
     @RequestMapping(value = "")
     public String index(Model model) {
@@ -34,7 +34,8 @@ public class CheeseController {
     @RequestMapping(value = "add", method = RequestMethod.POST)
     public String processAddCheeseForm(@RequestParam String cheeseName, @RequestParam String description) {
 
-        cheeses.put(cheeseName, description);
+        Cheese cheese = new Cheese(cheeseName, description);
+        cheeses.add(cheese);
 
         return "redirect:";
     }
@@ -46,9 +47,9 @@ public class CheeseController {
     }
 
     @RequestMapping(value = "remove", method = RequestMethod.POST)
-    public String processRemoveCheeseForm(@RequestParam ArrayList<String> cheeseNames) {
+    public String processRemoveCheeseForm(@RequestParam ArrayList<String> cheeses) {
 
-        for (String cheeseName : cheeseNames) {
+        for (String cheeseName : cheeses) {
             cheeses.remove(cheeseName);
         }
 

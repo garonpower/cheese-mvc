@@ -16,9 +16,9 @@
             <td><b>Cheese Name</b></td>
         </tr>
         <tr th:each="cheese : ${cheeses}">
-            <td><input type="checkbox" id="cheeseNames" name="cheeseNames" th:value="${cheese.key}"/>
-                <label for="cheeseNames"></label></td>
-            <td th:text="${cheese.key}">Cheese Name</td>
+            <td><input type="checkbox" th:id="${cheese.name}" name="cheeseNames" th:value="${cheese.name}"/>
+                <label th:for="${cheese.name}"></label></td>
+            <td th:text="${cheese.name}">Cheese Name</td>
         </tr>
     </table>
         <input type="submit" value="Remove Cheese" />
