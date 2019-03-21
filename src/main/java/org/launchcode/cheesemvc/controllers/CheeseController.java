@@ -9,6 +9,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 
 import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.List;
 
 @Controller
 @RequestMapping("cheese")
@@ -47,10 +48,15 @@ public class CheeseController {
     }
 
     @RequestMapping(value = "remove", method = RequestMethod.POST)
-    public String processRemoveCheeseForm(@RequestParam ArrayList<String> cheeses) {
+    public String processRemoveCheeseForm(@RequestParam ArrayList<Integer> cheeseIds) {
 
-        for (String cheeseName : cheeses) {
-            cheeses.remove(cheeseName);
+        for (Integer cheeseId : cheeseIds) {
+            for (Cheese cheese : cheeses) {
+                if (cheese.getId() == cheeseId) {
+                    cheeses.remove(cheese);
+                    break;
+                }
+            }
         }
 
         return "redirect:";

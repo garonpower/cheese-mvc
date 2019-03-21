@@ -9,6 +9,7 @@
 <p th:unless="${cheeses} and ${cheeses.size()}">no cheese :(</p>
 
 <form method="post">
+    <label for="cheeseIds"></label>
     <div>
     <table>
         <tr>
@@ -16,8 +17,7 @@
             <td><b>Cheese Name</b></td>
         </tr>
         <tr th:each="cheese : ${cheeses}">
-            <td><input type="checkbox" th:id="${cheese.name}" name="cheeseNames" th:value="${cheese.name}"/>
-                <label th:for="${cheese.name}"></label></td>
+            <td><input type="checkbox" id="cheeseIds" name="cheeseIds" th:value="${cheese.id}"/></td>
             <td th:text="${cheese.name}">Cheese Name</td>
         </tr>
     </table>

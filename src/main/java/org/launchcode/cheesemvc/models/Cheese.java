@@ -2,12 +2,20 @@ package org.launchcode.cheesemvc.models;
 
 public class Cheese {
 
+    private int id;
     private String name;
     private String description;
+    private static int nextId = 0;
 
     public Cheese(String name, String description) {
+        this.id = nextId;
         this.name = name;
         this.description = description;
+        nextId++;
+    }
+
+    public int getId() {
+        return id;
     }
 
     public String getName() {
@@ -27,5 +35,3 @@ public class Cheese {
     }
 }
 
-/*Refactor the CheeseController to use Cheese objects rather than the strings that were used previously.
-        You'll need to update your views as well.*/
