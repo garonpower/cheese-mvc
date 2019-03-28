@@ -10,8 +10,8 @@
 
 <table class="table" style="max-width: 600px;">
     <tr>
-        <td><b>Cheese Name</b></td>
-        <td><b>Description</b></td>
+        <th><b>Cheese Name</b></th>
+        <th><b>Description</b></th>
     </tr>
     <tr th:each="cheese : ${cheeses}">
         <td th:text="${cheese.name}">Cheese Name</td>

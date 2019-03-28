@@ -5,17 +5,25 @@ public class Cheese {
     private int id;
     private String name;
     private String description;
-    private static int nextId = 0;
+    private static int nextId = 1;
 
     public Cheese(String name, String description) {
-        this.id = nextId;
+        this();
         this.name = name;
         this.description = description;
+    }
+
+    public Cheese() {
+        id = nextId;
         nextId++;
     }
 
     public int getId() {
         return id;
+    }
+
+    public void setId(int id) {
+        this.id = id;
     }
 
     public String getName() {

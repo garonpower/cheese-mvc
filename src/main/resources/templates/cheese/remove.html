@@ -13,12 +13,14 @@
     <div>
     <table class="table">
         <tr>
-            <td></td>
             <td><b>Cheese Name</b></td>
+            <td><b>Check Box</b></td>
         </tr>
         <tr th:each="cheese : ${cheeses}">
-            <td><input type="checkbox" id="cheeseIds" name="cheeseIds" th:value="${cheese.id}"/></td>
-            <td th:text="${cheese.name}">Cheese Name</td>
+            <td th:text="${cheese.name}"></td>
+            <td><input type="checkbox" id="cheeseIds" name="cheeseIds"
+                       th:value="${cheese.id}"/></td>
+
         </tr>
     </table>
         <input type="submit" value="Remove Cheese" />
